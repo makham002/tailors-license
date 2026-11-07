@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: tailors-license
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: ADMIN_PASSWORD
+        value: your_strong_password_here
+      - key: SECRET_KEY
+        generateValue: true
